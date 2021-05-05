@@ -1,0 +1,3 @@
+C:/Users/Meevere/CLionProjects/burning_forest/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Meevere/CLionProjects/burning_forest/cmake-build-debug/CMakeFiles/burning_forest.dir
+C:/Users/Meevere/CLionProjects/burning_forest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
