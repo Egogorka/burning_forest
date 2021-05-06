@@ -16,8 +16,6 @@ using namespace sf;
 #define CENTER RESOLUTION/2.f
 
 #define TABLE_SIZE 10
-#define CELL_SIZE 30
-#define CELL_MARGIN 3
 
 void draw( RenderWindow& window, Table& table ){
 
@@ -49,10 +47,17 @@ int main() {
     window.create(VideoMode(resolution.x, resolution.y), "Test", Style::Default);
     window.setFramerateLimit(60);
 
-    CyclicArray<CyclicArray<int>>
-            cells = {{0,0,0},
-                     {0,0,0},
-                     {0,0,0}};
+//    CyclicArray<CyclicArray<int>>
+//            cells = {{0,0,0},
+//                     {0,0,0},
+//                     {0,0,0}};
+
+    CyclicArray<CyclicArray<int>>cells(TABLE_SIZE, CyclicArray<int>(TABLE_SIZE,0));
+
+                  cells[5][4] =
+                                cells[6][5] =
+    cells[4][6] = cells[5][6] = cells[6][6] = 1;
+
     Table table(cells);
 
     table.centerAt(CENTER);
@@ -73,7 +78,6 @@ int main() {
             if (event.type == Event::KeyPressed){
                 if(event.key.code == sf::Keyboard::Space){
                     table.update();
-                    std::cout << "space!";
                 }
             }
         }

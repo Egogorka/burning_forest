@@ -60,13 +60,39 @@ void Table::draw_cell(RenderTarget &target, sf::Vector2i index) const{
     target.draw(rect);
 }
 
-void Table::update() {
-    for(auto& sub_arr : cells){
-        for(auto& elem : sub_arr){
-            if( elem == 0){
-                elem = 1;
-            } else
-                elem = 0;
+void Table::map( int(*func)(int, int, int, CyclicArray<CyclicArray<int>>&) ){
+    auto temp(cells);
+    for( int i=0; i<cells.get_size(); i++){
+        for( int j=0; j<cells.get_size(); j++){
+             temp[i][j] = func(i,j,cells[i][j],cells);
         }
     }
+    cells = temp;
+}
+
+int update1(int i, int j, int data, CyclicArray<CyclicArray<int>>& arr){
+    if( data == 0 )
+        return 1;
+    return 0;
+}
+
+int update2(int i, int j, int data, CyclicArray<CyclicArray<int>>& cells){
+    auto neighbors = 0;
+    for( int _i=-1; _i<2; _i++){
+        for( int _j=-1; _j<2; _j++){
+            if( (_i != 0) or (_j != 0) )
+                neighbors += cells[i+_i][j+_j];
+        }
+    }
+
+    if(neighbors == 2)
+        return data;
+    if(neighbors == 3)
+        return 1;
+    return 0;
+}
+
+
+void Table::update() {
+    map(update2);
 }

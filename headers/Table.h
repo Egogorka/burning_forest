@@ -37,6 +37,12 @@ public:
 
     void update();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+    /**
+     *
+     * @param f - function of (i,j,data)
+     */
+    void map( int (*f)(int, int, int, CyclicArray<CyclicArray<int>>&) );
 };
 
 
