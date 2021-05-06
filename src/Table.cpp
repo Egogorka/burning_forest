@@ -4,8 +4,6 @@
 
 #include "Table.h"
 
-
-
 Table::Table() {
     CyclicArray<CyclicArray<int>> temp;
     cells = temp;
@@ -38,12 +36,11 @@ void Table::centerAt(Vector2f pos) {
 }
 
 void Table::draw(RenderTarget &target, RenderStates states) const {
-    for( int i=0; i<cells.get_size(); i++ ){
-        for( int j=0; j<cells[i].get_size(); j++ ){
-            draw_cell(target, Vector2i(i,j));
+    for( int i=0; i<cells.get_size(); i++ ) {
+        for (int j = 0; j < cells[i].get_size(); j++) {
+            draw_cell(target, Vector2i(i, j));
         }
     }
-    std::cout << cells << std::endl;
 }
 
 void Table::draw_cell(RenderTarget &target, sf::Vector2i index) const{

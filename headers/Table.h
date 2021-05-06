@@ -20,7 +20,7 @@ protected:
     int size;
     Vector2f position;
 
-    const int CELL_SIZE = 10;
+    const int CELL_SIZE = 30;
     const int CELL_MARGIN = 3;
 
     void draw_cell(RenderTarget &target, Vector2i index) const;

@@ -22,7 +22,6 @@ using namespace sf;
 void draw( RenderWindow& window, Table& table ){
 
     window.draw(table);
-    table.update();
 
 //    Font font;
 //    if(!font.loadFromFile("Arial.ttf"))
@@ -38,8 +37,6 @@ void draw( RenderWindow& window, Table& table ){
 //    window.draw(text);
 
 }
-
-
 
 int main() {
 
@@ -64,22 +61,22 @@ int main() {
         auto time = clock.getElapsedTime();
         clock.restart();
 
-        while(time.asMilliseconds() < 200)
-            time = clock.getElapsedTime();
-        std::cout << "br";
-
         window.clear(Color::Black);
         draw(window, table);
         window.display();
 
-        while(time.asMilliseconds() < 200)
-            time = clock.getElapsedTime();
-        std::cout << "br";
-
         Event event{};
-        while (window.pollEvent(event))
-            if(event.type == Event::Closed)
+        while (window.pollEvent(event)) {
+            if (event.type == Event::Closed) {
                 window.close();
+            } else
+            if (event.type == Event::KeyPressed){
+                if(event.key.code == sf::Keyboard::Space){
+                    table.update();
+                    std::cout << "space!";
+                }
+            }
+        }
     }
     return 0;
 }
