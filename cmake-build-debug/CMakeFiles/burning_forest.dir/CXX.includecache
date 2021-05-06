@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+../usables/containers/array.h
+iostream
+-
+
+../usables/containers/cyclic_array.h
+containers/array.h
+../usables/containers/containers/array.h
+
 C:/SFML/include/SFML/Config.hpp
 TargetConditionals.h
 C:/SFML/include/SFML/TargetConditionals.h
@@ -676,9 +684,17 @@ SFML/Config.hpp
 
 C:/SFML/include/SFML/Window/WindowStyle.hpp
 
+C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
+SFML/Graphics.hpp
+-
+containers/cyclic_array.h
+C:/Users/Meevere/CLionProjects/burning_forest/headers/containers/cyclic_array.h
+
 C:/Users/Meevere/CLionProjects/burning_forest/main.cpp
 SFML/Graphics.hpp
 -
 SFML/Window.hpp
 -
+headers/Table.h
+C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
 
