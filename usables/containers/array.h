@@ -13,6 +13,7 @@ namespace containers::array {
 
     template <typename T>
     class Array {
+    protected:
         T* _arr;
         int _size = 0;
     public:
@@ -93,6 +94,14 @@ namespace containers::array {
         }
 
         T* end(){
+            return _arr + _size;
+        }
+
+        T* begin() const{
+            return _arr;
+        }
+
+        T* end() const{
             return _arr + _size;
         }
 

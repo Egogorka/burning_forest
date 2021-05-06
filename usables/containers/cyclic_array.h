@@ -11,23 +11,27 @@ namespace containers::array {
 
     template <typename T>
     class CyclicArray: public Array<T>{
-        T* _arr;
-        int _size;
     public:
         using Array<T>::Array;
 
         T& operator [] (int i){
+            if( this->_size == 0 )
+                throw std::out_of_range("out of bounds");
+
             if( i < 0 ){
-                i = _size-(-i)%_size;
+                i = this->_size-(-i)%this->_size;
             }
-            return _arr[i % _size];
+            return this->_arr[i % this->_size];
         }
 
         T operator [] (int i) const{
+            if( this->_size == 0 )
+                throw std::out_of_range("out of bounds");
+
             if( i < 0 ){
-                i = _size-(-i)%_size;
+                i = this->_size-(-i)%this->_size;
             }
-            return _arr[i % _size];
+            return this->_arr[i % this->_size];
         }
     };
 
