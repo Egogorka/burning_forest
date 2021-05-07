@@ -24,8 +24,8 @@ add_executable(burning_forest
         main.cpp
         src/Table.cpp
         headers/Table.h
-        src/Canvas.cpp
-        headers/Canvas.h
+        src/App.cpp
+        headers/App.h
 
         ${SOURCE_FILES}
         )
