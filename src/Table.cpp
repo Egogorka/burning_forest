@@ -3,6 +3,7 @@
 //
 
 #include "Table.h"
+#include <math.h>
 
 Table::Table() {
     CyclicArray<CyclicArray<int>> temp;
@@ -106,4 +107,14 @@ void Table::update() {
     map(update2);
 }
 
+Vector2i Table::getClickedCell(Vector2f pos) {
+    // get position at the left-top corner of the table
+    Vector2f pos_at_corner = pos - position;
+    return Vector2i(floor(pos_at_corner.x/float(CELL_SIZE+CELL_MARGIN)),floor(pos_at_corner.y/float(CELL_SIZE+CELL_MARGIN)));
+}
+
+void Table::click(Vector2f pos) {
+    auto index = getClickedCell(pos);
+    cells[index.x][index.y] = (cells[index.x][index.y] + 1)%2;
+}
 

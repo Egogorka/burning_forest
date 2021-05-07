@@ -32,10 +32,17 @@ void App::on_loop() {
 void App::on_event(sf::Event &event) {
     if (event.type == sf::Event::Closed) {
         window.close();
-    } else
+    }
     if (event.type == sf::Event::KeyPressed){
         if(event.key.code == sf::Keyboard::Space){
+            std::cout << "space!\n";
             table.update();
+        }
+    }
+    if (event.type == sf::Event::MouseButtonPressed){
+        if(event.mouseButton.button == sf::Mouse::Left){
+            std::cout << "click!\n";
+            table.click(Vector2f(event.mouseButton.x,event.mouseButton.y));
         }
     }
 }
