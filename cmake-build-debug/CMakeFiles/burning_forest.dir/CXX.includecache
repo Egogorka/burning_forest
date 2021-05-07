@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+../headers/App.h
+containers/array.h
+../headers/containers/array.h
+SFML/Graphics.hpp
+-
+Table.h
+../headers/Table.h
+
+../headers/Table.h
+SFML/Graphics.hpp
+-
+containers/cyclic_array.h
+../headers/containers/cyclic_array.h
+
 ../usables/containers/array.h
 iostream
 -
@@ -684,6 +698,14 @@ SFML/Config.hpp
 
 C:/SFML/include/SFML/Window/WindowStyle.hpp
 
+C:/Users/Meevere/CLionProjects/burning_forest/headers/App.h
+containers/array.h
+C:/Users/Meevere/CLionProjects/burning_forest/headers/containers/array.h
+SFML/Graphics.hpp
+-
+Table.h
+C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
+
 C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
 SFML/Graphics.hpp
 -
@@ -697,4 +719,16 @@ SFML/Window.hpp
 -
 headers/Table.h
 C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
+headers/App.h
+C:/Users/Meevere/CLionProjects/burning_forest/headers/App.h
+
+C:/Users/Meevere/CLionProjects/burning_forest/src/App.cpp
+App.h
+C:/Users/Meevere/CLionProjects/burning_forest/src/App.h
+
+C:/Users/Meevere/CLionProjects/burning_forest/src/Table.cpp
+Table.h
+C:/Users/Meevere/CLionProjects/burning_forest/src/Table.h
+math.h
+-
 

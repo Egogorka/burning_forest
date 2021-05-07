@@ -78,11 +78,14 @@ CMakeFiles/burning_forest.dir/main.cpp.obj
  C:/SFML/include/SFML/Window/Window.hpp
  C:/SFML/include/SFML/Window/WindowHandle.hpp
  C:/SFML/include/SFML/Window/WindowStyle.hpp
+ C:/Users/Meevere/CLionProjects/burning_forest/headers/App.h
  C:/Users/Meevere/CLionProjects/burning_forest/headers/Table.h
  C:/Users/Meevere/CLionProjects/burning_forest/main.cpp
-CMakeFiles/burning_forest.dir/src/Canvas.cpp.obj
- ../headers/Canvas.h
+CMakeFiles/burning_forest.dir/src/App.cpp.obj
+ ../headers/App.h
+ ../headers/Table.h
  ../usables/containers/array.h
+ ../usables/containers/cyclic_array.h
  C:/SFML/include/SFML/Config.hpp
  C:/SFML/include/SFML/Graphics.hpp
  C:/SFML/include/SFML/Graphics/BlendMode.hpp
@@ -157,7 +160,7 @@ CMakeFiles/burning_forest.dir/src/Canvas.cpp.obj
  C:/SFML/include/SFML/Window/Window.hpp
  C:/SFML/include/SFML/Window/WindowHandle.hpp
  C:/SFML/include/SFML/Window/WindowStyle.hpp
- C:/Users/Meevere/CLionProjects/burning_forest/src/Canvas.cpp
+ C:/Users/Meevere/CLionProjects/burning_forest/src/App.cpp
 CMakeFiles/burning_forest.dir/src/Table.cpp.obj
  ../headers/Table.h
  ../usables/containers/array.h
