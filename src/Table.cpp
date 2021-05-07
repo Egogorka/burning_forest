@@ -22,6 +22,15 @@ Table::Table(CyclicArray<CyclicArray<int>> &cells) {
     size = cells.get_size();
 }
 
+Table::Table(Table &table):Table(table.cells){}
+Table& Table::operator=(const Table& other) {
+    this->cells = other.cells;
+    this->position = other.position;
+    this->size = other.size;
+
+    return *this;
+}
+
 Vector2f Table::getSize() const {
     auto temp = size*(CELL_SIZE+CELL_MARGIN);
     return Vector2f(temp,temp);
@@ -96,3 +105,5 @@ int update2(int i, int j, int data, CyclicArray<CyclicArray<int>>& cells){
 void Table::update() {
     map(update2);
 }
+
+

@@ -4,6 +4,7 @@
 using namespace sf;
 
 #include "headers/Table.h"
+#include "headers/App.h"
 
 #define RESOLUTION_HEIGHT 600
 #define RESOLUTION_WIDTH 800
@@ -17,70 +18,8 @@ using namespace sf;
 
 #define TABLE_SIZE 10
 
-void draw( RenderWindow& window, Table& table ){
-
-    window.draw(table);
-
-//    Font font;
-//    if(!font.loadFromFile("Arial.ttf"))
-//        return;
-//
-//    Text text;
-//    text.setFont(font);
-//    text.setString("Hello my people");
-//    text.setCharacterSize(24);
-//    text.setFillColor(Color::White);
-//    text.setPosition(320,280);
-//
-//    window.draw(text);
-
-}
-
 int main() {
-
-    Clock clock;
-
-
-
-    auto resolution = RESOLUTION;
-    RenderWindow window;
-    window.create(VideoMode(resolution.x, resolution.y), "Test", Style::Default);
-    window.setFramerateLimit(60);
-
-//    CyclicArray<CyclicArray<int>>
-//            cells = {{0,0,0},
-//                     {0,0,0},
-//                     {0,0,0}};
-
-    CyclicArray<CyclicArray<int>>cells(TABLE_SIZE, CyclicArray<int>(TABLE_SIZE,0));
-
-                  cells[5][4] =
-                                cells[6][5] =
-    cells[4][6] = cells[5][6] = cells[6][6] = 1;
-
-    Table table(cells);
-
-    table.centerAt(CENTER);
-
-    while (window.isOpen()){
-        auto time = clock.getElapsedTime();
-        clock.restart();
-
-        window.clear(Color::Black);
-        draw(window, table);
-        window.display();
-
-        Event event{};
-        while (window.pollEvent(event)) {
-            if (event.type == Event::Closed) {
-                window.close();
-            } else
-            if (event.type == Event::KeyPressed){
-                if(event.key.code == sf::Keyboard::Space){
-                    table.update();
-                }
-            }
-        }
-    }
+    App app;
+    app.run();
     return 0;
 }

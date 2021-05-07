@@ -30,6 +30,9 @@ public:
     explicit Table(int size);
     explicit Table(CyclicArray<CyclicArray<int>>& cells);
 
+    Table(Table& table);
+    Table& operator=(const Table& other);
+
     [[nodiscard]] Vector2f getSize() const;
 
     void setPosition(Vector2f pos);
