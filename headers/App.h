@@ -12,7 +12,7 @@
 using namespace containers;
 using sf::Vector2f;
 
-#define RESOLUTION_HEIGHT 600
+#define RESOLUTION_HEIGHT 800
 #define RESOLUTION_WIDTH 800
 
 #define RESOLUTION Vector2f(RESOLUTION_WIDTH, RESOLUTION_HEIGHT)
@@ -33,6 +33,5 @@ protected:
     void on_loop();
     void on_event(sf::Event& event);
 };
-
 
 #endif //BURNING_FOREST_APP_H

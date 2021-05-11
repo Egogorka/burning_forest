@@ -3,7 +3,7 @@
 //
 
 #include "Table.h"
-#include <math.h>
+#include <cmath>
 
 Table::Table() {
     CyclicArray<CyclicArray<int>> temp;
@@ -118,3 +118,33 @@ void Table::click(Vector2f pos) {
     cells[index.x][index.y] = (cells[index.x][index.y] + 1)%2;
 }
 
+Table::Table(std::string &filename) {
+    std::fstream fs;
+    fs.open(filename, std::fstream::out);
+
+    size = 0;
+    fs >> size;
+    cells = CyclicArray<CyclicArray<int>>(size);
+
+    for(int i=0; i<size; i++){
+        for(int j=0; j<size; j++){
+            fs >> cells[i][j];
+        }
+    }
+
+    fs.close();
+}
+
+void Table::save(std::string &filename) {
+    std::fstream fs;
+    fs.open(filename, std::fstream::in);
+
+    fs << size << '\n';
+    for(int i=0; i<size; i++){
+        for(int j=0; j<size; j++){
+            fs << cells[i][j] << ' ';
+        }
+        fs << '\n';
+    }
+    fs.close();
+}

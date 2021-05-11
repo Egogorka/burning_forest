@@ -14,7 +14,7 @@ App::App() {
 
 void App::before_loop() {
 
-    CyclicArray<CyclicArray<int>>cells(10, CyclicArray<int>(10,0));
+    CyclicArray<CyclicArray<int>>cells(20, CyclicArray<int>(20,0));
 
                   cells[5][4] =
                                 cells[6][5] =

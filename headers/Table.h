@@ -5,6 +5,8 @@
 #ifndef BURNING_FOREST_TABLE_H
 #define BURNING_FOREST_TABLE_H
 
+#include <fstream>
+
 #include <SFML/Graphics.hpp>
 using sf::Vector2i, sf::Vector2f;
 using sf::RenderTarget, sf::RenderStates;
@@ -34,6 +36,10 @@ public:
 
     Table(Table& table);
     Table& operator=(const Table& other);
+
+    // Save/load from file
+    explicit Table(std::string& filename);
+    void save(std::string& filename);
 
     // Other methods
     [[nodiscard]] Vector2f getSize() const;
