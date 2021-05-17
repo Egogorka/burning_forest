@@ -6,6 +6,7 @@
 #define BURNING_FOREST_RULES_H
 
 #include <functional>
+#include <utility>
 
 class Automaton;
 #include "Automaton.h"
@@ -16,7 +17,7 @@ protected:
     Automaton* _automaton = nullptr;
 
     // size of Moore neighborhood (usually 2 or 1)
-    int moore_size;
+    int moore_size = 1;
 
     // in general sense we need this kind of function
     //std::function<int(Array<Cell>&)> process;
@@ -25,15 +26,16 @@ protected:
 
     /**
      * Function that gets the weight of current neighbour depending on it's position
-     * and state
+     * and state: weighter(int state, int index)
      */
-    std::function<int(int, int)>* weighter;
+    std::function<int(int, int)> weighter;
 
 
     /**
-     * Function that returns the new state that depends on the sum of the weights
+     * Function that returns the new state that depends on the sum of the weights and current state:
+     * processor(int weights, int state);
      */
-    std::function<int(int)>* processor;
+    std::function<int(int, int)> processor;
 
 
     /**
@@ -41,12 +43,21 @@ protected:
      * @param cell - current cell
      * @param f - function that takes the Cell and the index of it;
      */
-    void apply_to_neighbors(Cell& cell, std::function<void(Cell, int)> func );
+    void apply_to_neighbors(Cell& cell, const std::function<void(Cell,int)>& func );
 
 public:
 
-    Rules( int _moore_size, std::function<int(int, int)> _weighter, std::function<int(int)> _processor){
-        moore_size = _moore_size; weighter = &_weighter; processor = &_processor;
+    Rules() = default;
+    void set_processor(const std::function<int(int, int)>& _processor){
+        processor = _processor;
+    }
+    void set_weighter(const std::function<int(int, int)>& _weighter){
+        weighter = _weighter;
+    }
+
+    Rules( int _moore_size, const std::function<int(int, int)>& _weighter, const std::function<int(int, int)>& _processor){
+        moore_size = _moore_size;
+        set_processor(_processor); set_weighter(_weighter);
     }
 
     void bind_automaton(Automaton& automaton);

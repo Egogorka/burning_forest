@@ -8,6 +8,10 @@ AutomatonView::AutomatonView(Automaton &_automaton) {
     automaton = &_automaton;
 }
 
+void AutomatonView::bind(Automaton &_automaton) {
+    automaton = &_automaton;
+}
+
 void AutomatonView::draw_cell(RenderTarget &target, Vector2i index) const {
     Vector2f temp(CELL_SIZE, CELL_SIZE);
     sf::RectangleShape rect(temp);
@@ -45,3 +49,5 @@ Vector2f AutomatonView::getSize() const {
     auto temp = automaton->map.get_size()*(CELL_SIZE+CELL_MARGIN);
     return Vector2f(temp,temp);
 }
+
+

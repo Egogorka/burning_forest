@@ -16,16 +16,26 @@ void Automaton::setAt(Cell &cell) {
 }
 
 void Automaton::update(Rules rules) {
-    Array<Array<Cell>> temp;
+    Array<Array<int>> temp(map.get_size(), Array<int>(map[0].get_size()));
     rules.bind_automaton(*this);
     for(auto& sub_map : map)
         for(auto& cell : sub_map){
-            temp[cell.x][cell.y].state = rules.new_state(cell);
+            temp[cell.x][cell.y] = rules.new_state(cell);
         }
 
     for(auto& sub_map : map)
         for(auto& cell : sub_map){
-            cell.state = temp[cell.x][cell.y].state;
+            cell.state = temp[cell.x][cell.y];
         }
+}
+
+void Automaton::setFrom(Array<Array<int>> cells) {
+    Array<Array<Cell>> temp(cells.get_size(), Array<Cell>(cells[0].get_size(), Cell(0,0,0)));
+    map = temp;
+    for (int i = 0; i < cells.get_size(); ++i) {
+        for (int j = 0; j < cells[0].get_size(); ++j) {
+            map[i][j] = Cell(i,j,cells[i][j]);
+        }
+    }
 }
 

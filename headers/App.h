@@ -7,7 +7,10 @@
 
 #include "containers/array.h"
 #include <SFML/Graphics.hpp>
-#include "Table.h"
+
+#include "Automaton.h"
+#include "AutomatonView.h"
+#include "Rules.h"
 
 using namespace containers;
 using sf::Vector2f;
@@ -22,7 +25,9 @@ class App {
     sf::RenderWindow window;
 
     // TODO: make it better, cuz what if i have more tables? then more variables? - bullshit
-    Table table;
+    AutomatonView automatonView;
+    Automaton automaton;
+    Rules rules;
 public:
     App();
 

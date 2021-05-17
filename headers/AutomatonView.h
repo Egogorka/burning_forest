@@ -24,7 +24,9 @@ protected:
 
 
 public:
+    AutomatonView() = default;
     explicit AutomatonView(Automaton& _automaton);
+    void bind(Automaton& _automaton);
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

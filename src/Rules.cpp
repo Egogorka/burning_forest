@@ -8,7 +8,7 @@ void Rules::bind_automaton(Automaton &automaton) {
     _automaton = &automaton;
 }
 
-void Rules::apply_to_neighbors(Cell& cell, std::function<void(Cell, int)> func) {
+void Rules::apply_to_neighbors(Cell& cell, const std::function<void(Cell,int)>& func ) {
     for( int i=-moore_size; i<=moore_size; i++){
         for( int j=-moore_size; j<=moore_size; j++){
             try {
@@ -23,10 +23,11 @@ void Rules::apply_to_neighbors(Cell& cell, std::function<void(Cell, int)> func) 
 
 int Rules::new_state(Cell &cell) {
     int weight = 0;
-    apply_to_neighbors(cell, [&weight, this](Cell _cell, int index){
-        weight += (*weighter)(_cell.state, index);
+    auto that = this;
+    apply_to_neighbors(cell, [&weight, &that](Cell _cell, int index){
+        weight += that->weighter(_cell.state, index);
     });
-    return (*processor)(weight);
+    return processor(weight, cell.state);
 }
 
 

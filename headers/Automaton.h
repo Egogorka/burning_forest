@@ -17,6 +17,8 @@ class Automaton{
 public:
     Array<Array<Cell>> map;
 
+    void setFrom(Array<Array<int>> cells);
+
     [[nodiscard]] Cell& getAt(int x, int y) const;
     void setAt(int x, int y, Cell& cell);
     void setAt(Cell& cell);
