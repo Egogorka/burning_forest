@@ -14,9 +14,9 @@ class Rules;
 using containers::array::Array;
 
 class Automaton{
-protected:
-    Array<Array<Cell>> map;
 public:
+    Array<Array<Cell>> map;
+
     [[nodiscard]] Cell& getAt(int x, int y) const;
     void setAt(int x, int y, Cell& cell);
     void setAt(Cell& cell);

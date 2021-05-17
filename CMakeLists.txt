@@ -17,7 +17,7 @@ set(SOURCE_FILES
         usables/graph.h
         usables/graph.cpp
         usables/containers/cyclic_array.h
-        usables/containers/list.h headers/Automaton.h headers/Rules.h headers/Cell.h src/Rules.cpp src/Automaton.cpp)
+        usables/containers/list.h headers/Automaton.h headers/Rules.h headers/Cell.h src/Rules.cpp src/Automaton.cpp headers/AutomatonView.h src/AutomatonView.cpp)
 
 
 add_executable(burning_forest
